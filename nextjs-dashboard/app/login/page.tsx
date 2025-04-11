@@ -11,7 +11,8 @@ import { Button } from '@/app/ui/button';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
- 
+import { Suspense } from 'react'
+
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
@@ -22,6 +23,7 @@ export default function LoginForm() {
   );
  
   return (
+    <Suspense>
     <form action={formAction} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
@@ -86,5 +88,6 @@ export default function LoginForm() {
         </div>
       </div>
     </form>
+    </Suspense>
   );
 }
